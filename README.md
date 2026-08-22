@@ -2,19 +2,19 @@
 
 Chrome extension — **watch up to 9 videos at once** in one tab (grid, PiP, float overlay).
 
-[![Install from GitHub](https://img.shields.io/badge/Install-GitHub-2ee6c8?style=for-the-badge)](https://github.com/dheerajgoel17/dual-stream)
+[![Install from GitHub](https://img.shields.io/badge/Install-v1.9.0-2ee6c8?style=for-the-badge)](https://github.com/dheerajgoel17/dual-stream/releases/latest)
 
 **Landing page:** [dheerajgoel17.github.io/dual-stream](https://dheerajgoel17.github.io/dual-stream)
 
 ## Install from GitHub
 
-1. **[Download ZIP](https://github.com/dheerajgoel17/dual-stream/archive/refs/heads/main.zip)** (or clone this repo)
+1. **[Download v1.9.0](https://github.com/dheerajgoel17/dual-stream/releases/latest/download/dual-stream-v1.9.0.zip)** (or clone this repo)
 2. Unzip if needed
 3. Open `chrome://extensions`
 4. Enable **Developer mode**
 5. Click **Load unpacked** → select this folder
 
-Updates: pull latest `main` and click **Reload** on the extension card.
+Updates: download the [latest release](https://github.com/dheerajgoel17/dual-stream/releases/latest) and click **Reload** on the extension card.
 
 ## Features
 
