@@ -719,9 +719,6 @@ window.addEventListener("beforeunload", () => {
 (function init() {
   DualStreamIcons.paint();
 
-  const adBar = document.getElementById("viewer-ad");
-  if (adBar && DualStreamAds.mount(adBar, "viewer")) adBar.hidden = false;
-
   const urls = readUrlsFromLocation();
   if (urls.length) {
     urls.forEach((url) => addPane(url, { focus: false }));

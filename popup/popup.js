@@ -174,7 +174,13 @@ document.getElementById("refresh").addEventListener("click", loadTabs);
 
 loadTabs();
 
-(function initAds() {
-  const slot = document.getElementById("ad-slot");
-  if (slot && DualStreamAds.mount(slot, "popup")) slot.hidden = false;
+(function initSupportLinks() {
+  const cfg = typeof DualStreamSupport !== "undefined" ? DualStreamSupport : {};
+  const sponsors = document.getElementById("support-sponsors");
+  const kofi = document.getElementById("support-kofi");
+
+  if (sponsors && cfg.githubSponsors) sponsors.href = cfg.githubSponsors;
+  if (kofi && cfg.kofi) kofi.href = cfg.kofi;
+
+  DualStreamIcons?.paint?.();
 })();

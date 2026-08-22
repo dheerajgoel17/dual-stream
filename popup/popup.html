@@ -40,22 +40,29 @@
       <ul id="tab-list" class="tab-list"></ul>
     </section>
 
-    <footer>
+    <footer class="action-footer">
       <button id="open-selected" class="btn btn-primary" type="button" disabled>
         Open selected
       </button>
       <span class="kbd-hint">Alt+Shift+S</span>
     </footer>
 
-    <div id="ad-slot" class="ad-slot" hidden aria-label="Advertisement"></div>
+    <footer class="support-footer" aria-label="Support development">
+      <span class="ico support-ico" data-icon="heart"></span>
+      <span class="support-label">Support</span>
+      <a id="support-sponsors" class="support-link" href="#" target="_blank" rel="noopener noreferrer"
+        >Sponsors</a
+      >
+      <span class="support-sep" aria-hidden="true">·</span>
+      <a id="support-kofi" class="support-link" href="#" target="_blank" rel="noopener noreferrer">Ko-fi</a>
+    </footer>
 
     <script src="../shared/embed.js"></script>
     <script src="../shared/streaming.js"></script>
     <script src="../shared/site-policy.js"></script>
     <script src="../shared/zlive.js"></script>
     <script src="../shared/ondemand.js"></script>
-    <script src="../shared/ads-config.js"></script>
-    <script src="../shared/ads.js"></script>
+    <script src="../shared/support-config.js"></script>
     <script src="../viewer/icons.js"></script>
     <script src="popup.js"></script>
   </body>

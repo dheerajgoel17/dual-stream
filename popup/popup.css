@@ -332,13 +332,13 @@ input:focus {
 
 /* footer */
 
-footer {
+.action-footer {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-footer .btn {
+.action-footer .btn {
   flex: 1;
 }
 
@@ -350,18 +350,39 @@ footer .btn {
   white-space: nowrap;
 }
 
-.ad-slot {
-  margin-top: 8px;
-  min-height: 50px;
-  border-top: 1px solid var(--line);
-  padding-top: 6px;
+.support-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: -2px;
+  padding-top: 2px;
+  font-size: 10px;
+  color: var(--faint);
 }
 
-.ad-slot .ds-ad-frame {
-  display: block;
-  width: 100%;
-  height: 50px;
-  border: 0;
-  border-radius: var(--radius-sm);
-  background: var(--surface-2);
+.support-ico {
+  width: 12px;
+  height: 12px;
+  color: color-mix(in srgb, var(--teal) 70%, var(--faint));
+}
+
+.support-label {
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.support-link {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s var(--ease);
+}
+
+.support-link:hover {
+  color: var(--teal);
+}
+
+.support-sep {
+  opacity: 0.45;
 }

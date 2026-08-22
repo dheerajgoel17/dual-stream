@@ -22,12 +22,12 @@ git remote add origin https://github.com/dheerajgoel17/dual-stream.git
 git push -u origin main
 ```
 
-## Enable GitHub Pages (for AdSense landing + extension ad iframes)
+## Enable GitHub Pages (landing page)
 
 1. Open https://github.com/dheerajgoel17/dual-stream/settings/pages  
 2. **Build and deployment** → Source: **GitHub Actions** (workflow included)  
 3. After deploy: https://dheerajgoel17.github.io/dual-stream/  
-4. Follow [docs/ADS.md](docs/ADS.md) to add your AdSense `ca-pub-…` id  
+4. Optional: set up [GitHub Sponsors / Ko-fi](docs/SUPPORT.md) and update `shared/support-config.js`
 
 ## Switch back to work account later (optional)
 

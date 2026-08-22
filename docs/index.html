@@ -6,14 +6,8 @@
     <title>Dual Stream — Chrome Extension</title>
     <meta
       name="description"
-      content="Watch up to 9 streams at once in one Chrome tab. Free Chrome extension — install from GitHub."
+      content="Watch up to 9 streams at once in one Chrome tab. Free, ad-free Chrome extension — install from GitHub."
     />
-    <!-- Replace ca-pub-XXXXXXXX with your AdSense publisher id -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
-      crossorigin="anonymous"
-    ></script>
     <style>
       :root {
         --bg: #07090c;
@@ -45,15 +39,6 @@
       .lead {
         color: var(--muted);
         margin: 0 0 24px;
-      }
-      .ad {
-        min-height: 90px;
-        margin: 20px 0;
-        padding: 12px;
-        border: 1px dashed var(--line);
-        border-radius: 12px;
-        background: var(--surface);
-        text-align: center;
       }
       .card {
         padding: 20px;
@@ -94,24 +79,31 @@
         text-decoration: none;
         font-weight: 600;
       }
+      .support {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 12px;
+        margin-top: 24px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .support-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .support-links a {
+        font-weight: 600;
+      }
     </style>
   </head>
   <body>
     <div class="wrap">
       <h1>Dual Stream</h1>
-      <p class="lead">Watch up to 9 videos side by side in one Chrome tab.</p>
-
-      <div class="ad">
-        <ins
-          class="adsbygoogle"
-          style="display: block"
-          data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-          data-ad-slot=""
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        ></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-      </div>
+      <p class="lead">Watch up to 9 videos side by side in one Chrome tab. Free and ad-free.</p>
 
       <div class="card">
         <h2>Install (unpacked)</h2>
@@ -139,19 +131,16 @@
         </p>
       </div>
 
-      <div class="ad">
-        <ins
-          class="adsbygoogle"
-          style="display: block"
-          data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-          data-ad-slot=""
-          data-ad-format="horizontal"
-        ></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      <div class="support">
+        <span>Enjoying Dual Stream? Optional support keeps development going:</span>
+        <div class="support-links">
+          <a href="https://github.com/sponsors/dheerajgoel17">GitHub Sponsors</a>
+          <a href="https://ko-fi.com/dheerajgoel17">Ko-fi</a>
+        </div>
       </div>
 
-      <p class="lead" style="font-size: 13px">
-        Not affiliated with Google. AdSense revenue supports hosting &amp; development.
+      <p class="lead" style="font-size: 13px; margin-top: 20px">
+        Not affiliated with Google, YouTube, Twitch, or any streaming provider.
       </p>
     </div>
   </body>

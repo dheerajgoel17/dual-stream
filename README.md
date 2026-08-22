@@ -40,14 +40,14 @@ npm install
 npm test
 ```
 
-## Monetization (Google AdSense)
+## Support development
 
-Ad slots on the [GitHub Pages site](docs/index.html) and optional banners in the popup/viewer (via iframe). Setup: [docs/ADS.md](docs/ADS.md).
+Dual Stream is **free and ad-free**. Optional donations via [GitHub Sponsors](https://github.com/sponsors/dheerajgoel17) or [Ko-fi](https://ko-fi.com/dheerajgoel17). Setup: [docs/SUPPORT.md](docs/SUPPORT.md).
 
 ## Docs
 
 - [Usage](docs/USAGE.md)
-- [AdSense setup](docs/ADS.md)
+- [Support / donations](docs/SUPPORT.md)
 
 ## License
 
