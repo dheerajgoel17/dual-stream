@@ -27,7 +27,7 @@ git push -u origin main
 1. Open https://github.com/dheerajgoel17/dual-stream/settings/pages  
 2. **Build and deployment** → Source: **GitHub Actions** (workflow included)  
 3. After deploy: https://dheerajgoel17.github.io/dual-stream/  
-4. Optional: set up [GitHub Sponsors / Ko-fi](docs/SUPPORT.md) and update `shared/support-config.js`
+4. Optional: configure support links in [`.github/FUNDING.yml`](../.github/FUNDING.yml) and [`shared/support-config.js`](../shared/support-config.js) — see [docs/SUPPORT.md](docs/SUPPORT.md)
 
 ## Switch back to work account later (optional)
 

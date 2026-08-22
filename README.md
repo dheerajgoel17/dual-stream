@@ -42,7 +42,7 @@ npm test
 
 ## Support development
 
-Dual Stream is **free and ad-free**. Optional donations via [GitHub Sponsors](https://github.com/sponsors/dheerajgoel17) or [Ko-fi](https://ko-fi.com/dheerajgoel17). Setup: [docs/SUPPORT.md](docs/SUPPORT.md).
+Dual Stream is **free and ad-free**. Optional support via the repo [**Sponsor**](https://github.com/sponsors/dheerajgoel17) button (GitHub Sponsors · Buy Me a Coffee). See [docs/SUPPORT.md](docs/SUPPORT.md).
 
 ## Docs
 

@@ -1,28 +1,30 @@
 # Support development
 
-Dual Stream is free and ad-free. If it saves you time, you can optionally support ongoing work.
+Dual Stream is free and ad-free. Optional support is welcome but never required.
 
-## In the extension
+## Where links live
 
-The popup shows a small **Support development** footer with links to GitHub Sponsors and Ko-fi. It does not block or interrupt usage.
+| Location | Purpose |
+| --- | --- |
+| [`.github/FUNDING.yml`](../.github/FUNDING.yml) | Repo **Sponsor** button (GitHub-native) |
+| [`shared/support-config.js`](../shared/support-config.js) | Extension popup footer |
 
-Edit URLs in `shared/support-config.js` after you create your accounts.
+When you change a support URL, update **both** files so the repo button and popup stay in sync.
 
-## Set up GitHub Sponsors
+## GitHub Sponsor button
 
-1. Open [github.com/sponsors](https://github.com/sponsors) while logged in as **dheerajgoel17**
-2. Complete the sponsor profile (one-time)
-3. Confirm your profile URL matches `githubSponsors` in `shared/support-config.js`
+GitHub reads `.github/FUNDING.yml` on the default branch. Supported keys include `github` (Sponsors) and `buy_me_a_coffee` (username only, no full URL).
 
-## Set up Ko-fi (optional)
+See [GitHub docs — Sponsor button](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository).
 
-1. Create a page at [ko-fi.com](https://ko-fi.com)
-2. Set `kofi` in `shared/support-config.js` to your page URL
+## Extension popup
+
+A small footer (**Support · Sponsors · Coffee**) links out in a new tab. It does not block usage or show paid features.
 
 ## Landing page
 
-The GitHub Pages site (`docs/index.html`) includes the same support links — no ads in the extension UI.
+The GitHub Pages site links to the repo Sponsor flow rather than duplicating URLs in multiple places.
 
 ## Forks
 
-Anyone can fork this repo and remove the footer. That is expected for open source. Official releases and updates live on [github.com/dheerajgoel17/dual-stream](https://github.com/dheerajgoel17/dual-stream).
+Anyone can fork and remove the footer. Official releases stay at [github.com/dheerajgoel17/dual-stream](https://github.com/dheerajgoel17/dual-stream).
