@@ -6,6 +6,20 @@ Chrome extension — **watch up to 9 videos at once** in one tab (grid, PiP, flo
 
 **Landing page:** [dheerajgoel17.github.io/dual-stream](https://dheerajgoel17.github.io/dual-stream)
 
+## Screenshots
+
+<p align="center">
+  <img src="docs/screenshots/popup.png" alt="Dual Stream popup — pick tabs and open multi-view" width="340" />
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/multi-view-2.png" alt="Two live streams side by side in the grid viewer" width="720" />
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/multi-view-9.png" alt="Nine-stream grid layout with layout controls" width="720" />
+</p>
+
 ## Install from GitHub
 
 1. **[Download v1.9.0](https://github.com/dheerajgoel17/dual-stream/releases/latest/download/dual-stream-v1.9.0.zip)** (or clone this repo)

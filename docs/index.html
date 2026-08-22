@@ -98,12 +98,75 @@
       .support-links a {
         font-weight: 600;
       }
+      .shots {
+        display: grid;
+        gap: 20px;
+        margin-bottom: 16px;
+      }
+      .shot {
+        margin: 0;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        overflow: hidden;
+        background: var(--surface);
+      }
+      .shot img {
+        display: block;
+        width: 100%;
+        height: auto;
+        vertical-align: middle;
+      }
+      .shot figcaption {
+        padding: 10px 14px 12px;
+        font-size: 13px;
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+      }
+      .shot-narrow {
+        max-width: 360px;
+      }
     </style>
   </head>
   <body>
     <div class="wrap">
       <h1>Dual Stream</h1>
       <p class="lead">Watch up to 9 videos side by side in one Chrome tab. Free and ad-free.</p>
+
+      <div class="card">
+        <h2>Screenshots</h2>
+        <div class="shots">
+          <figure class="shot shot-narrow">
+            <img
+              src="screenshots/popup.png"
+              alt="Extension popup with open tabs and Open multi-view button"
+              width="340"
+              height="560"
+              loading="lazy"
+            />
+            <figcaption>Popup — pick open tabs or paste a URL to float.</figcaption>
+          </figure>
+          <figure class="shot">
+            <img
+              src="screenshots/multi-view-2.png"
+              alt="Multi-view grid showing two live streams side by side"
+              width="1440"
+              height="860"
+              loading="lazy"
+            />
+            <figcaption>Two streams in one tab — audio focus with keys 1–9 and m.</figcaption>
+          </figure>
+          <figure class="shot">
+            <img
+              src="screenshots/multi-view-9.png"
+              alt="Nine-pane grid with layout controls in the header"
+              width="1440"
+              height="860"
+              loading="lazy"
+            />
+            <figcaption>Up to 9 panes — auto, 2-column, 3-column, or single-column layout.</figcaption>
+          </figure>
+        </div>
+      </div>
 
       <div class="card">
         <h2>Install (unpacked)</h2>
