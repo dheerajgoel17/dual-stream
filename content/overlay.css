@@ -1,0 +1,6 @@
+/* Overlay styles live in the content script shadow root.
+   This file exists so Chrome can insertCSS as a fallback on pages
+   that were already open before the extension loaded. */
+#dual-stream-overlay-host {
+  all: initial;
+}

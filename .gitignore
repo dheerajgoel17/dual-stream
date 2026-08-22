@@ -1,0 +1,6 @@
+*.crx
+*.pem
+.DS_Store
+node_modules/
+test-result*.png
+test-result.png

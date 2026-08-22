@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dual Stream</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="top">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <div class="brand-text">
+        <strong>Dual Stream</strong>
+        <span>Streams, pages &amp; odds</span>
+      </div>
+    </header>
+
+    <section class="block">
+      <button id="open-grid" class="btn btn-primary block-btn" type="button">
+        <span class="ico" data-icon="grid"></span>
+        Open multi-view
+      </button>
+      <p class="hint">Opens the grid with every open tab — streams, Sony LIV, betting sites, and more.</p>
+    </section>
+
+    <section class="block">
+      <label class="label" for="paste-url">Float over this page</label>
+      <form class="row" id="float-form">
+        <input id="paste-url" type="url" placeholder="Paste any URL to float" spellcheck="false" />
+        <button class="btn" type="submit">Float</button>
+      </form>
+    </section>
+
+    <section class="block block-tight">
+      <div class="block-head">
+        <span class="label">Open tabs</span>
+        <button id="refresh" class="link-btn" type="button">Refresh</button>
+      </div>
+      <p id="status" class="status" hidden></p>
+      <ul id="tab-list" class="tab-list"></ul>
+    </section>
+
+    <footer>
+      <button id="open-selected" class="btn btn-primary" type="button" disabled>
+        Open selected
+      </button>
+      <span class="kbd-hint">Alt+Shift+S</span>
+    </footer>
+
+    <div id="ad-slot" class="ad-slot" hidden aria-label="Advertisement"></div>
+
+    <script src="../shared/embed.js"></script>
+    <script src="../shared/streaming.js"></script>
+    <script src="../shared/site-policy.js"></script>
+    <script src="../shared/zlive.js"></script>
+    <script src="../shared/ondemand.js"></script>
+    <script src="../shared/ads-config.js"></script>
+    <script src="../shared/ads.js"></script>
+    <script src="../viewer/icons.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

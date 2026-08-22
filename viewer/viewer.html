@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dual Stream</title>
+    <link rel="stylesheet" href="viewer.css" />
+  </head>
+  <body>
+    <header class="bar">
+      <div class="brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-name">Dual Stream</span>
+        <span class="brand-count" id="stream-count">0 panes</span>
+      </div>
+
+      <div class="bar-actions">
+        <div class="seg" role="group" aria-label="Layout">
+          <button type="button" class="seg-btn" data-layout="auto" title="Auto grid">Auto</button>
+          <button type="button" class="seg-btn" data-layout="2" title="2 columns">2</button>
+          <button type="button" class="seg-btn" data-layout="3" title="3 columns">3</button>
+          <button type="button" class="seg-btn" data-layout="1" title="Single column">1</button>
+        </div>
+
+        <button type="button" class="btn" id="add-stream">
+          <span class="ico" data-icon="plus"></span>
+          Add stream
+        </button>
+
+        <button type="button" class="btn" id="open-tabs">
+          <span class="ico" data-icon="window"></span>
+          From tabs
+        </button>
+
+        <button type="button" class="btn btn-icon" id="mute-all" title="Mute all">
+          <span class="ico" data-icon="speaker-off"></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="grid" class="grid" aria-label="Streams"></main>
+
+    <div class="empty-state" id="empty-state">
+      <div class="empty-card">
+        <span class="ico ico-lg" data-icon="grid"></span>
+        <h1>Watch up to 9 streams at once</h1>
+        <p>Add a match stream, an odds board, or any open tab — side by side in one grid.</p>
+        <div class="empty-actions">
+          <button type="button" class="btn btn-primary" id="empty-add">
+            <span class="ico" data-icon="plus"></span>
+            Add stream
+          </button>
+          <button type="button" class="btn" id="empty-tabs">
+            <span class="ico" data-icon="window"></span>
+            From tabs
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <aside class="drawer" id="drawer" hidden aria-label="Open tabs">
+      <div class="drawer-head">
+        <h2>Open tabs</h2>
+        <button type="button" class="btn btn-icon" id="close-drawer" title="Close">
+          <span class="ico" data-icon="x"></span>
+        </button>
+      </div>
+      <p class="drawer-hint" id="drawer-hint">Select tabs to add as streams.</p>
+      <ul id="drawer-list" class="drawer-list"></ul>
+      <div class="drawer-foot">
+        <button type="button" class="btn btn-primary" id="add-selected" disabled>Add selected</button>
+      </div>
+    </aside>
+
+    <div class="toast" id="toast" hidden></div>
+    <div id="viewer-ad" class="viewer-ad" hidden aria-label="Advertisement"></div>
+
+    <template id="pane-template">
+      <section class="pane" tabindex="0">
+        <div class="pane-head">
+          <span class="pane-tally"></span>
+          <span class="pane-title"></span>
+          <div class="pane-tools">
+            <button type="button" class="pane-btn" data-act="audio" title="Listen to this stream">
+              <span class="ico" data-icon="speaker-off"></span>
+            </button>
+            <button type="button" class="pane-btn" data-act="reload" title="Reload stream">
+              <span class="ico" data-icon="reload"></span>
+            </button>
+            <button type="button" class="pane-btn" data-act="fullscreen" title="Fullscreen">
+              <span class="ico" data-icon="expand"></span>
+            </button>
+            <button type="button" class="pane-btn pane-close" data-act="close" title="Remove">
+              <span class="ico" data-icon="x"></span>
+            </button>
+          </div>
+        </div>
+        <div class="pane-player"></div>
+        <form class="pane-form">
+          <input
+            type="url"
+            class="pane-input"
+            placeholder="Paste any URL — stream, Sony LIV, betting site, YouTube…"
+            spellcheck="false"
+          />
+          <button type="submit" class="btn btn-primary pane-load">Load</button>
+        </form>
+      </section>
+    </template>
+
+    <script src="../vendor/hls.min.js"></script>
+    <script src="../shared/embed.js"></script>
+    <script src="../shared/zlive.js"></script>
+    <script src="../shared/ondemand.js"></script>
+    <script src="../shared/streaming.js"></script>
+    <script src="../shared/site-policy.js"></script>
+    <script src="../shared/tab-mirror.js"></script>
+    <script src="../shared/native-player.js"></script>
+    <script src="../shared/ads-config.js"></script>
+    <script src="../shared/ads.js"></script>
+    <script src="icons.js"></script>
+    <script src="viewer.js"></script>
+    <script src="self-test.js"></script>
+  </body>
+</html>

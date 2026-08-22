@@ -1,0 +1,16 @@
+{
+  "name": "dual-stream",
+  "version": "1.7.0",
+  "private": true,
+  "description": "Chrome extension for watching two streams at once",
+  "type": "module",
+  "scripts": {
+    "test": "npm run test:lint && npm run test:network && npm run test:browser",
+    "test:lint": "node scripts/check-syntax.mjs",
+    "test:network": "node scripts/e2e-zlive.mjs && node scripts/e2e-ondemand.mjs",
+    "test:browser": "node scripts/e2e-browser.mjs"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^24.0.0"
+  }
+}

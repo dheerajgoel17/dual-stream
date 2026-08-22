@@ -1,0 +1,80 @@
+{
+  "manifest_version": 3,
+  "name": "Dual Stream",
+  "version": "1.9.0",
+  "description": "Watch up to 9 streams or pages at once — matches, odds boards, Sony LIV, JioStar, and more.",
+  "minimum_chrome_version": "116",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Dual Stream",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "permissions": [
+    "tabs",
+    "scripting",
+    "storage",
+    "tabCapture",
+    "declarativeNetRequestWithHostAccess"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "commands": {
+    "pip-current": {
+      "suggested_key": {
+        "default": "Alt+Shift+P"
+      },
+      "description": "Picture-in-Picture the current tab's video"
+    },
+    "open-split": {
+      "suggested_key": {
+        "default": "Alt+Shift+S"
+      },
+      "description": "Open the Dual Stream multi-view grid"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "shared/embed.js",
+        "shared/stream-detect.js",
+        "shared/zlive.js",
+        "shared/ondemand.js",
+        "shared/aggregators.js",
+        "shared/streaming.js",
+        "content/content.js"
+      ],
+      "css": ["content/overlay.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "*://*.ninguno.cc/*",
+        "*://*.vipbox.fm/*",
+        "*://*.vipbox.lc/*",
+        "*://*.embedsports.top/*"
+      ],
+      "js": ["shared/stream-detect.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
