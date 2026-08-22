@@ -21,7 +21,7 @@ Chrome extension — **watch up to 9 videos at once** in one tab (grid, PiP, flo
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/stream-and-odds.png" alt="Live stream with betting odds board" width="720" />
+  <img src="docs/screenshots/stream-and-odds.png" alt="Live stream with a web page side by side" width="720" />
 </p>
 
 <p align="center">
@@ -45,7 +45,7 @@ Updates: download the [latest release](https://github.com/dheerajgoel17/dual-str
 - **Picture-in-Picture** — `Alt+Shift+P`
 - Embeds: YouTube, Twitch, Kick, Vimeo
 - Direct HLS for supported watch URLs (see [docs/USAGE.md](docs/USAGE.md))
-- **Odds boards** — load sportsbook pages beside streams
+- **Page panes** — load any web page beside streams
 
 ## Shortcuts
 
@@ -61,8 +61,9 @@ Configure at `chrome://extensions/shortcuts`.
 ```bash
 npm install
 npm test
-npm run screenshots   # regenerate marketing PNGs
 ```
+
+Marketing screenshots live in `docs/screenshots/` (static PNGs, not regenerated from stream URLs).
 
 ## Support development
 
