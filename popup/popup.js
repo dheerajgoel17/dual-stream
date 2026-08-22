@@ -176,10 +176,8 @@ loadTabs();
 
 (function initSupportLinks() {
   const cfg = typeof DualStreamSupport !== "undefined" ? DualStreamSupport : {};
-  const sponsors = document.getElementById("support-sponsors");
   const coffee = document.getElementById("support-coffee");
 
-  if (sponsors && cfg.githubSponsors) sponsors.href = cfg.githubSponsors;
   if (coffee && cfg.buyMeACoffee) coffee.href = cfg.buyMeACoffee;
 
   DualStreamIcons?.paint?.();

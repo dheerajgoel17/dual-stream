@@ -29,6 +29,7 @@ html,
 body {
   margin: 0;
   width: 340px;
+  max-height: 600px;
   background: var(--bg);
   color: var(--text);
   font: 13px/1.45 var(--font);
@@ -39,6 +40,7 @@ body {
   flex-direction: column;
   gap: 10px;
   padding: 14px 14px 10px;
+  overflow-y: auto;
 }
 
 p,
@@ -217,7 +219,7 @@ input:focus {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  max-height: 260px;
+  max-height: 220px;
   overflow-y: auto;
 }
 
@@ -354,11 +356,14 @@ input:focus {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 6px;
-  margin-top: -2px;
-  padding-top: 2px;
+  margin-top: 2px;
+  padding: 8px 0 4px;
+  border-top: 1px solid var(--line);
   font-size: 10px;
   color: var(--faint);
+  flex-shrink: 0;
 }
 
 .support-ico {
@@ -381,6 +386,26 @@ input:focus {
 
 .support-link:hover {
   color: var(--teal);
+}
+
+.support-link-coffee {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, #ffdd00 35%, var(--line));
+  background: color-mix(in srgb, #ffdd00 12%, var(--surface-2));
+  color: #f5e6a8;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.support-link-coffee:hover {
+  color: #ffdd00;
+  border-color: color-mix(in srgb, #ffdd00 55%, transparent);
+  background: color-mix(in srgb, #ffdd00 18%, var(--surface-2));
 }
 
 .support-sep {

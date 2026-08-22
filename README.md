@@ -56,7 +56,15 @@ npm test
 
 ## Support development
 
-Dual Stream is **free and ad-free**. Optional support via the repo [**Sponsor**](https://github.com/sponsors/dheerajgoel17) button (GitHub Sponsors · Buy Me a Coffee). See [docs/SUPPORT.md](docs/SUPPORT.md).
+Dual Stream is **free and ad-free**. Optional support:
+
+<p align="center">
+  <a href="https://buymeacoffee.com/meghnaad">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy me a coffee" width="217" />
+  </a>
+</p>
+
+See [docs/SUPPORT.md](docs/SUPPORT.md).
 
 ## Docs
 

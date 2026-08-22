@@ -93,10 +93,20 @@
       .support-links {
         display: flex;
         flex-wrap: wrap;
+        align-items: center;
         gap: 12px;
       }
       .support-links a {
         font-weight: 600;
+      }
+      .bmc-btn {
+        display: inline-block;
+        line-height: 0;
+      }
+      .bmc-btn img {
+        height: 48px;
+        width: auto;
+        border-radius: 8px;
       }
       .shots {
         display: grid;
@@ -197,9 +207,16 @@
       </div>
 
       <div class="support">
-        <span>Optional support keeps development going — use the Sponsor button on GitHub.</span>
+        <span>Optional support keeps development going.</span>
         <div class="support-links">
-          <a href="https://github.com/sponsors/dheerajgoel17">Sponsor on GitHub</a>
+          <a class="bmc-btn" href="https://buymeacoffee.com/meghnaad" target="_blank" rel="noopener noreferrer">
+            <img
+              src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+              alt="Buy me a coffee"
+              width="217"
+              height="48"
+            />
+          </a>
         </div>
       </div>
 
