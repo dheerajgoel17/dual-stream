@@ -1,6 +1,6 @@
 # Support development
 
-Dual Stream is free and ad-free. Optional support is welcome but never required.
+Multi Streams is free and ad-free. Optional support is welcome but never required.
 
 ## Where links live
 
@@ -25,7 +25,7 @@ Footer shows a yellow **Buy me a coffee** pill. It opens in a new tab and does n
 
 ## Landing page
 
-The GitHub Pages site links to the repo Sponsor flow rather than duplicating URLs in multiple places.
+The GitHub Pages site shows the official yellow **Buy me a coffee** button linking to [buymeacoffee.com/meghnaad](https://buymeacoffee.com/meghnaad).
 
 ## Forks
 

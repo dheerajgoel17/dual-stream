@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Dual Stream",
-  "version": "1.9.0",
-  "description": "Watch up to 9 streams or pages at once — matches, odds boards, Sony LIV, JioStar, and more.",
+  "name": "Multi Streams",
+  "version": "2.0.0",
+  "description": "Watch up to 9 streams or pages at once — sports, channels, and odds boards side by side.",
   "minimum_chrome_version": "116",
   "icons": {
     "16": "icons/icon16.png",
@@ -10,7 +10,7 @@
     "128": "icons/icon128.png"
   },
   "action": {
-    "default_title": "Dual Stream",
+    "default_title": "Multi Streams",
     "default_popup": "popup/popup.html",
     "default_icon": {
       "16": "icons/icon16.png",
@@ -40,7 +40,7 @@
       "suggested_key": {
         "default": "Alt+Shift+S"
       },
-      "description": "Open the Dual Stream multi-view grid"
+      "description": "Open the Multi Streams grid"
     }
   },
   "content_scripts": [

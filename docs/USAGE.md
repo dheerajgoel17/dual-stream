@@ -1,6 +1,6 @@
-# Dual Stream usage
+# Multi Streams usage
 
-Dual Stream is a Chrome extension for watching up to nine streams **at the same time** — not one after the other.
+Multi Streams is a Chrome extension for watching up to nine streams **at the same time** — not one after the other.
 
 ## Modes
 

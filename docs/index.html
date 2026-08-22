@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dual Stream — Chrome Extension</title>
+    <title>Multi Streams — Chrome Extension</title>
     <meta
       name="description"
       content="Watch up to 9 streams at once in one Chrome tab. Free, ad-free Chrome extension — install from GitHub."
@@ -14,7 +14,7 @@
         --surface: #121820;
         --text: #e8edf2;
         --muted: #8b95a3;
-        --teal: #2ee6c8;
+        --teal: #0088ff;
         --line: rgba(232, 237, 242, 0.1);
         --font: system-ui, -apple-system, "Segoe UI", sans-serif;
       }
@@ -135,11 +135,17 @@
       .shot-narrow {
         max-width: 360px;
       }
+      .hero-logo {
+        display: block;
+        width: 120px;
+        height: auto;
+        margin: 0 0 16px;
+      }
     </style>
-  </head>
   <body>
     <div class="wrap">
-      <h1>Dual Stream</h1>
+      <img class="hero-logo" src="logo.png" alt="Multi Streams" width="120" height="120" />
+      <h1>Multi Streams</h1>
       <p class="lead">Watch up to 9 videos side by side in one Chrome tab. Free and ad-free.</p>
 
       <div class="card">
@@ -167,13 +173,23 @@
           </figure>
           <figure class="shot">
             <img
+              src="screenshots/stream-and-odds.png"
+              alt="Live stream alongside a betting odds board"
+              width="1440"
+              height="860"
+              loading="lazy"
+            />
+            <figcaption>Stream + odds board — live match beside your sportsbook.</figcaption>
+          </figure>
+          <figure class="shot">
+            <img
               src="screenshots/multi-view-9.png"
               alt="Nine-pane grid with layout controls in the header"
               width="1440"
               height="860"
               loading="lazy"
             />
-            <figcaption>Up to 9 panes — auto, 2-column, 3-column, or single-column layout.</figcaption>
+            <figcaption>Up to 9 panes — sports channels and live matches in one grid.</figcaption>
           </figure>
         </div>
       </div>
@@ -185,8 +201,8 @@
             Download:
             <a
               id="zip-link"
-              href="https://github.com/dheerajgoel17/dual-stream/releases/latest/download/dual-stream-v1.9.0.zip"
-              >Download v1.9.0 (ZIP)</a
+              href="https://github.com/dheerajgoel17/dual-stream/releases/latest/download/multi-streams-v2.0.0.zip"
+              >Download v2.0.0 (ZIP)</a
             >
           </li>
           <li>Unzip the folder</li>

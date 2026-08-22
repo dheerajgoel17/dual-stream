@@ -1,28 +1,36 @@
-# Dual Stream
+# Multi Streams
 
 Chrome extension — **watch up to 9 videos at once** in one tab (grid, PiP, float overlay).
 
-[![Install from GitHub](https://img.shields.io/badge/Install-v1.9.0-2ee6c8?style=for-the-badge)](https://github.com/dheerajgoel17/dual-stream/releases/latest)
+<p align="center">
+  <img src="docs/logo.png" alt="Multi Streams logo" width="120" />
+</p>
+
+[![Install from GitHub](https://img.shields.io/badge/Install-v2.0.0-0088ff?style=for-the-badge)](https://github.com/dheerajgoel17/dual-stream/releases/latest)
 
 **Landing page:** [dheerajgoel17.github.io/dual-stream](https://dheerajgoel17.github.io/dual-stream)
 
 ## Screenshots
 
 <p align="center">
-  <img src="docs/screenshots/popup.png" alt="Dual Stream popup — pick tabs and open multi-view" width="340" />
+  <img src="docs/screenshots/popup.png" alt="Multi Streams popup" width="340" />
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/multi-view-2.png" alt="Two live streams side by side in the grid viewer" width="720" />
+  <img src="docs/screenshots/multi-view-2.png" alt="Two live streams side by side" width="720" />
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/multi-view-9.png" alt="Nine-stream grid layout with layout controls" width="720" />
+  <img src="docs/screenshots/stream-and-odds.png" alt="Live stream with betting odds board" width="720" />
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/multi-view-9.png" alt="Nine-stream grid" width="720" />
 </p>
 
 ## Install from GitHub
 
-1. **[Download v1.9.0](https://github.com/dheerajgoel17/dual-stream/releases/latest/download/dual-stream-v1.9.0.zip)** (or clone this repo)
+1. **[Download latest release](https://github.com/dheerajgoel17/dual-stream/releases/latest)** (or clone this repo)
 2. Unzip if needed
 3. Open `chrome://extensions`
 4. Enable **Developer mode**
@@ -37,6 +45,7 @@ Updates: download the [latest release](https://github.com/dheerajgoel17/dual-str
 - **Picture-in-Picture** — `Alt+Shift+P`
 - Embeds: YouTube, Twitch, Kick, Vimeo
 - Direct HLS for supported watch URLs (see [docs/USAGE.md](docs/USAGE.md))
+- **Odds boards** — load sportsbook pages beside streams
 
 ## Shortcuts
 
@@ -52,11 +61,12 @@ Configure at `chrome://extensions/shortcuts`.
 ```bash
 npm install
 npm test
+npm run screenshots   # regenerate marketing PNGs
 ```
 
 ## Support development
 
-Dual Stream is **free and ad-free**. Optional support:
+Multi Streams is **free and ad-free**. Optional support:
 
 <p align="center">
   <a href="https://buymeacoffee.com/meghnaad">

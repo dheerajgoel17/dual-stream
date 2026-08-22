@@ -1,0 +1,30 @@
+/**
+ * Multi Streams brand tokens — shared across popup, viewer, and docs.
+ */
+:root {
+  --brand: #0088ff;
+  --brand-bright: #33a3ff;
+  --brand-dim: #0066cc;
+  --accent: var(--brand);
+  --accent-soft: color-mix(in srgb, var(--brand) 16%, transparent);
+  --accent-border: color-mix(in srgb, var(--brand) 42%, transparent);
+  --teal: var(--brand);
+}
+
+.brand-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.brand-logo-sm {
+  width: 28px;
+  height: 28px;
+}
+
+.brand-logo-lg {
+  width: 72px;
+  height: 72px;
+}
