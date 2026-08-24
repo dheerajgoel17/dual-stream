@@ -87,18 +87,29 @@
   }
 
   function buildConfig(useProxy, referer, origin) {
+    // Multiview prioritizes stability over low latency. Live LL-HLS settings
+    // keep buffers tiny and cause constant rebuffering when several panes share
+    // one connection.
     const config = {
       enableWorker: true,
-      lowLatencyMode: true,
+      lowLatencyMode: false,
       backBufferLength: 30,
-      // Grid panes are much smaller than 1080p. Capping decode to the rendered
-      // size keeps CPU sane when several streams play at once.
+      maxBufferLength: 30,
+      maxMaxBufferLength: 60,
+      maxBufferSize: 60 * 1000 * 1000,
+      maxBufferHole: 0.5,
+      // Prefer a safer start bitrate; ABR climbs if the link has headroom.
+      abrEwmaDefaultEstimate: 500000,
+      startLevel: -1,
+      // Grid panes are small — don't decode full 1080p in every tile.
       capLevelToPlayerSize: true,
+      abrBandWidthFactor: 0.7,
+      abrBandWidthUpFactor: 0.5,
       fragLoadPolicy: {
         default: {
-          maxLoadTimeMs: 30000,
-          maxTimeToFirstByteMs: 30000,
-          errorRetry: { maxNumRetry: 6, retryDelayMs: 1000, maxRetryDelayMs: 8000 },
+          maxLoadTimeMs: 20000,
+          maxTimeToFirstByteMs: 10000,
+          errorRetry: { maxNumRetry: 4, retryDelayMs: 1000, maxRetryDelayMs: 8000 },
         },
       },
     };
@@ -156,9 +167,28 @@
         hls.loadSource(streamUrl);
         hls.attachMedia(video);
 
-        hls.on(root.Hls.Events.MANIFEST_PARSED, () => {
+        hls.on(root.Hls.Events.MANIFEST_PARSED, (_event, data) => {
           badge.textContent = opts.label || streamLabel(opts.type);
           badge.classList.remove("error");
+
+          // After layout, cap to the tile size so ABR doesn't chase 1080p in a
+          // small Multiview cell.
+          if (typeof hls.autoLevelCapping === "number") {
+            try {
+              hls.capLevelToPlayerSize = true;
+            } catch (_) {
+              /* ignore */
+            }
+          }
+
+          const levels = data?.levels?.length || 0;
+          if (levels > 1 && hls.currentLevel === -1) {
+            // Start near mid/low quality for multi-pane stability.
+            const start = Math.min(1, levels - 1);
+            hls.startLevel = start;
+            hls.loadLevel = start;
+          }
+
           video.play().catch(() => {
             video.muted = true;
             video.play().catch(() => {});

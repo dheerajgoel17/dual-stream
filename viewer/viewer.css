@@ -17,12 +17,12 @@
   --danger: #ff6b6b;
   --live: #ff4d4d;
 
-  --radius-sm: 8px;
-  --radius: 12px;
-  --radius-lg: 16px;
+  --radius-sm: 0;
+  --radius: 0;
+  --radius-lg: 0;
 
   --bar-h: 56px;
-  --gap: 8px;
+  --gap: 0;
   --ease: cubic-bezier(0.2, 0.8, 0.3, 1);
 
   --font: "Avenir Next", "Segoe UI", ui-rounded, system-ui, -apple-system, sans-serif;
@@ -45,6 +45,32 @@ body {
 body {
   display: grid;
   grid-template-rows: var(--bar-h) 1fr;
+  background: #000;
+}
+
+/* DAZN-style: streams fill the whole window; chrome floats over */
+body.has-streams {
+  grid-template-rows: 1fr;
+}
+
+body.has-streams .bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.22s var(--ease), opacity 0.22s var(--ease);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.72) 70%, transparent 100%);
+  border-bottom: 0;
+}
+
+body.has-streams.chrome-visible .bar {
+  transform: none;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 h1,
@@ -85,6 +111,7 @@ input {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  height: var(--bar-h);
   padding: 0 14px;
   background: var(--surface);
   border-bottom: 1px solid var(--line);
@@ -128,7 +155,7 @@ input {
   height: 34px;
   padding: 0 12px;
   border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
+  border-radius: 0;
   background: var(--surface-2);
   cursor: pointer;
   white-space: nowrap;
@@ -169,19 +196,19 @@ input {
 
 .seg {
   display: flex;
-  gap: 2px;
-  padding: 3px;
+  gap: 0;
+  padding: 0;
   border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
+  border-radius: 0;
   background: var(--surface-2);
 }
 
 .seg-btn {
   min-width: 34px;
-  height: 26px;
+  height: 32px;
   padding: 0 8px;
   border: 0;
-  border-radius: 6px;
+  border-radius: 0;
   background: transparent;
   color: var(--muted);
   font-size: 12px;
@@ -200,21 +227,21 @@ input {
 }
 
 /* ---------- grid ---------- */
+/* DAZN Multiview: full rectangle, equal or main+side tiles, zero gap. */
 
 .grid {
-  /* Panes are sized to 16:9 so the frame hugs the picture instead of
-     wrapping it in letterbox bars. Needs the cell size up front. */
-  --cell-w: calc((100vw - var(--gap) * (var(--cols) + 1)) / var(--cols));
-  --cell-h: calc((100vh - var(--bar-h) - var(--gap) * (var(--rows) + 1)) / var(--rows));
-
   display: grid;
   grid-template-columns: repeat(var(--cols, 1), minmax(0, 1fr));
   grid-template-rows: repeat(var(--rows, 1), minmax(0, 1fr));
-  place-items: center;
-  gap: var(--gap);
-  padding: var(--gap);
+  place-items: stretch;
+  gap: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
   min-height: 0;
   overflow: hidden;
+  background: #000;
+  cursor: default;
 }
 
 .grid:empty {
@@ -225,26 +252,43 @@ input {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: min(var(--cell-w), calc(var(--cell-h) * 16 / 9));
-  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: 100%;
   min-width: 0;
   min-height: 0;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface);
+  border: 0;
+  border-radius: 0;
+  background: #000;
   overflow: hidden;
   outline: none;
-  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  box-shadow: none;
+  cursor: pointer;
 }
 
 .pane:focus-visible {
-  border-color: var(--line-strong);
+  outline: 2px solid var(--brand, var(--teal));
+  outline-offset: -2px;
 }
 
+/* Active audio — DAZN-style highlight ring on selected tile */
 .pane.is-audio {
-  border-color: color-mix(in srgb, var(--teal) 55%, transparent);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--teal) 30%, transparent),
-    0 0 24px color-mix(in srgb, var(--teal) 14%, transparent);
+  outline: 3px solid var(--brand, var(--teal));
+  outline-offset: -3px;
+  z-index: 2;
+}
+
+.pane.is-audio::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 4;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand, var(--teal));
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.55);
+  pointer-events: none;
 }
 
 .pane.is-dragging {
@@ -252,7 +296,8 @@ input {
 }
 
 .pane.is-drop-target {
-  border-color: var(--amber);
+  outline: 2px solid var(--amber);
+  outline-offset: -2px;
 }
 
 /* pane header floats over the video and fades in on hover */
@@ -294,7 +339,7 @@ input {
   place-items: center;
   width: 22px;
   height: 22px;
-  border-radius: 6px;
+  border-radius: 0;
   background: color-mix(in srgb, var(--teal) 16%, transparent);
   border: 1px solid color-mix(in srgb, var(--teal) 40%, transparent);
   color: var(--teal);
@@ -326,7 +371,7 @@ input {
   width: 28px;
   height: 28px;
   border: 0;
-  border-radius: 6px;
+  border-radius: 0;
   background: rgba(12, 16, 21, 0.72);
   color: var(--text);
   cursor: pointer;
@@ -433,12 +478,12 @@ input {
 
 .stream-badge {
   position: absolute;
-  left: 10px;
-  bottom: 10px;
+  left: 0;
+  bottom: 0;
   z-index: 2;
-  max-width: calc(100% - 20px);
-  padding: 4px 9px;
-  border-radius: 999px;
+  max-width: 100%;
+  padding: 4px 8px;
+  border-radius: 0;
   background: rgba(6, 8, 11, 0.78);
   color: var(--teal);
   font-size: 11px;
@@ -541,7 +586,7 @@ input {
   padding: 32px;
   text-align: center;
   border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
+  border-radius: 0;
   background: var(--surface);
   color: var(--muted);
   pointer-events: auto;
@@ -570,10 +615,10 @@ input {
 
 .drawer {
   position: fixed;
-  top: var(--bar-h);
+  top: 0;
   right: 0;
   bottom: 0;
-  z-index: 20;
+  z-index: 50;
   display: flex;
   flex-direction: column;
   width: 340px;
@@ -693,7 +738,7 @@ input {
 .drawer-empty {
   padding: 14px;
   border: 1px dashed var(--line);
-  border-radius: var(--radius-sm);
+  border-radius: 0;
   color: var(--faint);
   font-size: 12px;
   text-align: center;
@@ -723,7 +768,7 @@ input {
   max-width: min(560px, calc(100vw - 32px));
   padding: 10px 16px;
   border: 1px solid var(--line-strong);
-  border-radius: 999px;
+  border-radius: 0;
   background: var(--surface-2);
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
   font-size: 13px;

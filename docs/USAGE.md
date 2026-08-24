@@ -9,7 +9,7 @@ Multi Streams is a Chrome extension for watching up to nine streams **at the sam
 Use this when you are already watching something and want another stream in the corner.
 
 1. Stay on the tab you want as stream A.
-2. Click the Dual Stream icon.
+2. Click the Multi Streams icon.
 3. Either paste a YouTube / Twitch / Kick / Vimeo URL and click **Float**, or click **Float here** on another open tab.
 4. Drag the overlay from its header, resize from the bottom-right corner, unmute, or close it.
 
@@ -19,7 +19,7 @@ The overlay starts muted because Chrome blocks unmuted autoplay without a click 
 
 Use this when the site cannot be embedded (or you want Chrome's native floating window).
 
-1. Open Dual Stream.
+1. Open Multi Streams.
 2. Click **PiP** on a tab that already has a `<video>` element.
 3. Chrome's PiP window stays visible while you use other tabs.
 
@@ -27,11 +27,15 @@ Shortcut: `Alt+Shift+P` on the current tab.
 
 Netflix, Prime Video, Hotstar, and similar DRM players may block PiP or embeds.
 
-### 3. Multi-view (one tab, up to 9 players)
+### 3. Multiview (one tab, up to 9 players)
+
+Inspired by DAZN Multiview: the window is one rectangle, split into gapless tiles with no rounded corners.
 
 1. Click **Open multi-view**, or press `Alt+Shift+S`.
 2. Paste a URL into any empty pane, or click **From tabs** and tick several open tabs at once.
-3. Use **Auto / 2 / 3 / 1** to set the column count. Drag a pane's header to reorder the grid.
+3. **Auto** picks a Multiview layout (2 side-by-side, 3 with a large main + two side, 4 as 2×2, etc.). Use **2 / 3 / 1** for equal columns.
+4. **Click a tile** (or press `1`–`9`) to hear that stream — only one audio at a time.
+5. Move the mouse to show the top bar; it hides while you watch.
 
 Each pane has its own controls in the header (they fade in on hover):
 
@@ -42,7 +46,7 @@ Each pane has its own controls in the header (they fade in on hover):
 | Fullscreen | Fullscreens this pane (double-clicking the video also works) |
 | Close | Removes the pane and frees its bandwidth |
 
-Panes are sized to 16:9 so the frame hugs the picture. The grid stops at 9 streams;
+The viewer fills the window as a rectangle and divides it into Multiview tiles with **no gaps** and **no rounded corners** (DAZN-style). The grid stops at 9 streams;
 a tenth is refused rather than degrading the others.
 
 #### Audio

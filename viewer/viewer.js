@@ -54,35 +54,103 @@ function paneState(paneId) {
 
 /* ---------- layout ---------- */
 
-function columnsFor(count) {
-  if (state.layout !== "auto") return Math.min(Number(state.layout), Math.max(count, 1));
-  if (count <= 1) return 1;
-  if (count <= 4) return 2;
-  return 3;
-}
-
+/** DAZN-style Multiview: equal tiles, or main + side stack for 3 and 5. */
 function applyLayout() {
   const count = state.panes.length;
-  const cols = columnsFor(count);
 
-  grid.style.setProperty("--cols", cols);
-  grid.style.setProperty("--rows", Math.max(1, Math.ceil(count / cols)));
+  grid.dataset.count = String(count);
+  grid.dataset.mode = state.layout;
+
+  state.panes.forEach((pane, index) => {
+    const el = paneEl(pane.id);
+    if (!el) return;
+    el.style.gridColumn = "";
+    el.style.gridRow = "";
+    el.dataset.slot = String(index + 1);
+    el.querySelector(".pane-tally").textContent = index + 1;
+  });
+
+  if (state.layout === "auto") {
+    applyMultiviewAuto(count);
+  } else {
+    const cols = Math.min(Number(state.layout), Math.max(count, 1));
+    const rows = Math.max(1, Math.ceil(count / cols));
+    grid.style.setProperty("--cols", cols);
+    grid.style.setProperty("--rows", rows);
+  }
 
   document.querySelectorAll("[data-layout]").forEach((btn) => {
     btn.setAttribute("aria-pressed", String(btn.dataset.layout === state.layout));
   });
 
   emptyState.hidden = count > 0;
-  streamCount.textContent = count === 1 ? "1 pane" : `${count} panes`;
+  document.body.classList.toggle("has-streams", count > 0);
+  streamCount.textContent = count === 1 ? "1 stream" : `${count} streams`;
 
   const full = count >= MAX_PANES;
   document.getElementById("add-stream").disabled = full;
   document.getElementById("empty-add").disabled = full;
+}
 
-  state.panes.forEach((pane, index) => {
-    const el = paneEl(pane.id);
-    if (el) el.querySelector(".pane-tally").textContent = index + 1;
-  });
+function applyMultiviewAuto(count) {
+  if (count <= 1) {
+    grid.style.setProperty("--cols", 1);
+    grid.style.setProperty("--rows", 1);
+    return;
+  }
+
+  if (count === 2) {
+    grid.style.setProperty("--cols", 2);
+    grid.style.setProperty("--rows", 1);
+    return;
+  }
+
+  if (count === 3) {
+    /* Main (first) left tall + two stacked — DAZN Multiview 3-up */
+    grid.style.setProperty("--cols", 2);
+    grid.style.setProperty("--rows", 2);
+    const [main, a, b] = state.panes;
+    setPaneCell(main.id, 1, "1 / 3");
+    setPaneCell(a.id, 2, 1);
+    setPaneCell(b.id, 2, 2);
+    return;
+  }
+
+  if (count === 4) {
+    grid.style.setProperty("--cols", 2);
+    grid.style.setProperty("--rows", 2);
+    return;
+  }
+
+  if (count === 5) {
+    /* Main left tall + 2×2 on the right */
+    grid.style.setProperty("--cols", 3);
+    grid.style.setProperty("--rows", 2);
+    const [main, ...rest] = state.panes;
+    setPaneCell(main.id, 1, "1 / 3");
+    setPaneCell(rest[0].id, 2, 1);
+    setPaneCell(rest[1].id, 3, 1);
+    setPaneCell(rest[2].id, 2, 2);
+    setPaneCell(rest[3].id, 3, 2);
+    return;
+  }
+
+  if (count === 6) {
+    grid.style.setProperty("--cols", 3);
+    grid.style.setProperty("--rows", 2);
+    return;
+  }
+
+  /* 7–9: equal 3-column wall */
+  grid.style.setProperty("--cols", 3);
+  grid.style.setProperty("--rows", Math.ceil(count / 3));
+}
+
+function setPaneCell(paneId, column, row) {
+  const el = paneEl(paneId);
+  if (!el) return;
+  el.style.gridColumn = String(column);
+  el.style.gridRow = String(row);
 }
 
 /* ---------- audio focus ---------- */
@@ -517,6 +585,12 @@ function bindPane(node, paneId) {
     const sourceId = event.dataTransfer.getData("text/plain");
     if (sourceId && sourceId !== paneId) reorderPanes(sourceId, paneId);
   });
+
+  /* DAZN Multiview: click a tile to hear it */
+  node.addEventListener("click", (event) => {
+    if (event.target.closest("button, a, input, form, label")) return;
+    setAudioPane(paneId);
+  });
 }
 
 function reorderPanes(sourceId, targetId) {
@@ -715,6 +789,29 @@ window.addEventListener("beforeunload", () => {
 });
 
 /* ---------- boot ---------- */
+
+(function initChrome() {
+  let hideTimer = null;
+
+  const showChrome = () => {
+    document.body.classList.add("chrome-visible");
+    clearTimeout(hideTimer);
+    if (!document.body.classList.contains("has-streams")) return;
+    hideTimer = setTimeout(() => {
+      if (!drawer.hidden) return;
+      document.body.classList.remove("chrome-visible");
+    }, 2200);
+  };
+
+  document.addEventListener("mousemove", showChrome);
+  document.addEventListener("pointerdown", showChrome);
+  document.querySelector(".bar")?.addEventListener("mouseenter", () => {
+    clearTimeout(hideTimer);
+    document.body.classList.add("chrome-visible");
+  });
+
+  showChrome();
+})();
 
 (function init() {
   DualStreamIcons.paint();
