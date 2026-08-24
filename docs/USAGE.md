@@ -126,7 +126,7 @@ No manual "open tab → From tabs" step for streaming sites.
 | zlive / ondemand | Yes | Instant API resolve |
 | VIPBox, StreamEast, any `/live/` `/watch/` page | Yes | Background harvest → direct HLS |
 | Direct `.m3u8` link | Yes | Plays immediately |
-| Betting / odds (Polymarket, Bet365, …) | Yes | Full page mode (not harvested) |
+| Dashboard / trading sites | Yes | Full page mode (not harvested) |
 | Sony LIV / JioStar (DRM) | Tab mirror only | Cannot pull HLS |
 
 ### Tab mirroring (background only)

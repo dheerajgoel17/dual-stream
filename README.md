@@ -13,19 +13,7 @@ Chrome extension — **watch up to 9 videos at once** in one tab (grid, PiP, flo
 ## Screenshots
 
 <p align="center">
-  <img src="docs/screenshots/multiview-3.png" alt="Multiview — large main stream plus two side panes" width="720" />
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/popup.png" alt="Multi Streams popup" width="340" />
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/multi-view-2.png" alt="Two live streams side by side" width="720" />
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/multi-view-9.png" alt="Nine-stream grid" width="720" />
+  <img src="docs/screenshots/multiview-4.png" alt="Four live streams in a 2×2 Multiview grid" width="720" />
 </p>
 
 ## Install from GitHub
@@ -63,7 +51,7 @@ npm install
 npm test
 ```
 
-Marketing screenshots live in `docs/screenshots/` (static PNGs, not regenerated from stream URLs).
+Marketing screenshot: `docs/screenshots/multiview-4.png` (static PNG; not regenerated from stream URLs).
 
 ## Support development
 

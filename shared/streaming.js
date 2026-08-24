@@ -1,5 +1,5 @@
 /**
- * Detect whether a URL is a stream watch page vs a plain website (odds, etc.).
+ * Detect whether a URL is a stream watch page vs a plain website (dashboards, etc.).
  * Drives universal background harvest: paste any stream URL → auto-pull HLS.
  */
 (function (root) {

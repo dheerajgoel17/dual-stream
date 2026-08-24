@@ -131,7 +131,7 @@
         preferredMode: "page",
         allowPageFrame: true,
         preferTabMirror: false,
-        hint: "Loads the full interactive site — odds boards, scorecards, chat.",
+        hint: "Loads the full interactive site — scorecards, chat, and live stats.",
       };
     }
 
@@ -154,7 +154,7 @@
       preferredMode: "page",
       allowPageFrame: true,
       preferTabMirror: false,
-      hint: "Loads the full site in this pane — useful for odds boards, scorecards, and chat.",
+      hint: "Loads the full site in this pane — useful for scorecards, chat, and live stats.",
     };
   }
 

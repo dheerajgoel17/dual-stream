@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Multi Streams",
   "version": "2.0.0",
-  "description": "Watch up to 9 streams or pages at once — sports, channels, and odds boards side by side.",
+  "description": "Watch up to 9 streams or pages at once — sports channels and web pages side by side.",
   "minimum_chrome_version": "116",
   "icons": {
     "16": "icons/icon16.png",
